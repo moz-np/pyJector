@@ -1,0 +1,13 @@
+RUN IN PYTHON3
+For Server :
+	CV2
+	SOCKET
+	OS
+	PYWIN32	
+	NUMPY
+For Client :
+	CV2
+	OS
+	PYGAME
+	
+
