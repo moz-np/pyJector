@@ -4,7 +4,7 @@ Enables sharing Screen in a network.
 PYjector is a screen casting program which captures the 
 screen of the host computer and casts that to the
 client. It is written in python 3 .
-------------------------------------------------------------------------------------------
+
 Insturctions to use:
 1)Install the required dependencies.
 **RUN IN PYTHON3
@@ -27,7 +27,7 @@ Note:
 ###The computers must be connected in the same network.
 ###Enter the server computer ip address in both the client and the server program.
 
-----------Team PYjector-------------------
+      ----------Team PYjector-------------------
 	|	Roshan Guragain	               |
 	|	Sujit Silwal	                 |
 	|	Sudeep Bhandari	               |
