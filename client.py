@@ -1,34 +1,28 @@
 import socket
-import cv2
 import os
 import pygame as py
-def disp(img,gameDisplay):
-        
-        
+def disp(img,game_display):
         image = py.image.load(img)
-        gameDisplay.blit(image,(0,0))
+        game_display.blit(image,(0,0))
         py.display.update()
-        a =True
         for event in py.event.get():
                 if event.type == py.QUIT:
-                    pygame.quit()
+                    py.quit()
                     quit()
-       
-                
-host = input("Enter the server ip")
-clientsocket = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
-clientSocketNumber = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+
+host = input("Enter the server ip: ")
+client_socket = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+client_socket_number = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 #end point for client
 py.init()
-gameDisplay = py.display.set_mode((800,800))
+game_display = py.display.set_mode((800,800))
 
 try:
-    clientsocket.connect((host,800))
-    clientSocketNumber.connect((host,8000))
+    client_socket.connect((host,800))
+    client_socket_number.connect((host,8000))
     print("connected")
 except:
     print("failed connecting to the server")
-print("message")
 try:
         os.mkdir("image")
 except:
@@ -36,18 +30,17 @@ except:
 os.chdir("image")
 
 def p():
-        size = clientSocketNumber.recv(6)
-        q = clientsocket.recv(int(size.decode()))       
+        size = client_socket_number.recv(6)
+        q = client_socket.recv(int(size.decode()))       
         r= "roshan.png"
         fil = open(r,"wb")
         fil.write(q)
         fil.close()
         try:
-                
-                        disp(r,gameDisplay)
+                disp(r,game_display)
         except:
-                        disp("Error.png",gameDisplay)
+                disp("Error.png",game_display)
                 
 while True:
         p()
-clientsocket.close()
+client_socket.close()
